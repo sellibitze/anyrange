@@ -1,13 +1,12 @@
-//! This library provides a `Range` trait to that unifies the ranges
+//! This library provides an `AnyRange` trait that unifies the ranges
 //! `std::ops::Range`, `std::ops::RangeFrom`, `std::ops::RangeTo`
-//! and `std::ops::RangeFull`. It offers a conversion function that
-//! 
-//! for converting artibrary kinds of
-//! ranges to "concrete" ranges that have a number for start/end.
+//! and `std::ops::RangeFull`. It offers a function for converting
+//! artibrary kinds of ranges to "concrete" ranges that have a start
+//! and an end.
 
 use std::ops;
 
-pub trait AnyRange<Index>: Sized {
+pub trait AnyRange<Index> {
 
     /// returns `Sone(s)` if a start has been specified
     fn start(&self) -> Option<Index>;
@@ -15,7 +14,7 @@ pub trait AnyRange<Index>: Sized {
     /// returns `Sone(s)` if an end has been specified
     fn end(&self) -> Option<Index>;
 
-    /// converts this range into a concrete `std::ops::Range<usize>`
+    /// converts this range into a concrete `std::ops::Range<Index>`
     /// by defaulting non-existant bounds to the given start/end values
     fn to_range(&self, start: Index, end: Index) -> ops::Range<Index> {
         ops::Range {

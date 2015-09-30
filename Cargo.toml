@@ -2,3 +2,9 @@
 name = "anyrange"
 version = "0.1.0"
 authors = ["Sebastian Gesemann <s.gesemann@gmail.com>"]
+license = "MIT/Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/sellibitze/anyrange.git"
+homepage = "https://github.com/sellibitze/anyrange"
+description = "Small helper trait that helps dealing with range arguments"
+keywords = ["utility", "range"]
